@@ -1,21 +1,24 @@
 let theta;
 let yoff = 0.0; // 2nd dimension of perlin noise
-
+let x_axis = 1;
 
 
 function setup() {
-  canvas = createCanvas(windowWidth/2, windowHeight);
-  canvas.position(windowWidth/2, 0);
+  canvas = createCanvas(windowWidth/3, windowHeight/3);
+  //canvas.position(windowWidth/2, windowHeight-windowHeight/3);
+  canvas.parent('razeContainer');
   canvas.style('z-index', '-1');
 }
 
 function draw() {
-  //background(0, 99, 0, 8000);
-  background(255);
-  frameRate(24);
+  //background(255, 255, 255, 55);
+  if(x_axis % 3){
+    background(Math.random(255) * 1000, Math.random(255) * 1000, Math.random(255) * 1000, 5);
+  }
+  frameRate(240);
   stroke(150);
   // Let's pick an angle 0 to 90 degrees based on the mouse position
-  let a = (Math.random(mouseX) / Math.random(width)) * 90;
+  let a = (x_axis / width) * 90;
   // Convert it to radians
   theta = radians(a);
   // Start the tree from the bottom of the screen
@@ -25,8 +28,11 @@ function draw() {
   // Move to the end of that line
   translate(0,-120);
   // Start the recursive branching!
-  branch(windowHeight/5);
-  
+  branch(windowHeight/15);
+  textSize(32);
+  fill(0, 102, 153, 51);
+  text('raZe', 10, 90);
+  x_axis++;
 }
 
 function branch(h) {
@@ -51,4 +57,9 @@ function branch(h) {
     branch(h);
     pop();
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth/3, windowHeight/3);
+  canvas.parent('razeContainer');
 }

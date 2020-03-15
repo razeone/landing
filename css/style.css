@@ -1,6 +1,27 @@
+.businessCard {
+  border-top: 4px double black;
+  border-left: 4px double black;
+  border-right: 4px double black;
+  border-bottom: 4px double black;
+  padding: 100px 20px;
+}
+
+#razeContainer h4 {
+  border: 1px ridge black;
+  padding: 40px;
+  margin: 0;
+  height: 30%;
+}
+
+
 .icon {
     display: inline-block;
     width: 32px;
     height: 32px;
+    margin: 5px;
     background-size: cover;
+  }
+
+  .one-half {
+    margin-top: 25%;
   }

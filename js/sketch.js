@@ -11,11 +11,13 @@ function setup() {
 }
 
 function draw() {
-  //background(255, 255, 255, 55);
+  background(255, 255, 255);
+  /*
   if(x_axis % 3){
-    background(Math.random(255) * 1000, Math.random(255) * 1000, Math.random(255) * 1000, 5);
+    background(Math.random(255) * 1000, Math.random(255) * 1000, Math.random(255) * 1000);
   }
-  frameRate(240);
+  */
+  frameRate(24);
   stroke(150);
   // Let's pick an angle 0 to 90 degrees based on the mouse position
   let a = (x_axis / width) * 90;
@@ -28,10 +30,7 @@ function draw() {
   // Move to the end of that line
   translate(0,-120);
   // Start the recursive branching!
-  branch(windowHeight/15);
-  textSize(32);
-  fill(0, 102, 153, 51);
-  text('raZe', 10, 90);
+  branch(windowHeight/12);
   x_axis++;
 }
 
